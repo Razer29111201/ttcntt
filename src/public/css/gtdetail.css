@@ -1,0 +1,31 @@
+.body {
+    margin-top: 30px;
+}
+
+.body h2 {
+    text-align: center;
+}
+
+.body-manager {
+    display: flex;
+    margin-top: 50px;
+}
+
+.body-manager-img {
+    margin: 0 auto;
+
+}
+
+.body-manager-img {
+    width: 113px;
+    height: 158px;
+    object-fit: cover;
+}
+
+.manager-title {
+    width: 70%;
+}
+
+.manager-title p {
+    line-height: 1.7;
+}
