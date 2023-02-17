@@ -21,92 +21,79 @@
 
     <%- include('./partials/header'); %>
         <div class="grid wide">
-            <div class="container">
-                <div class="row">
-                    <div class="col m-9">
-                        <div class="link">
-                            <a href="/">Trang Chủ</a>
-                            <i class='bx bx-chevron-right'></i>
-                            <a href="/news">Tin Tức</a>
+            <div class="body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col m-9">
+                            <div class="link">
+                                <a href="/">Trang Chủ</a>
+                                <i class='bx bx-chevron-right'></i>
+                                <a href="/news">Tin Tức</a>
 
-                        </div>
-                        <div class="body">
-                            <% for(let i=0 ; i < role.length; i++ ){ %>
+                            </div>
+                            <div class="body">
+                                <% for(let i=0 ; i < role.length; i++ ){ %>
 
-                                <% if (role[i].role===1) { %>
-                                    <h2>Ban Giám Đốc</h2>
-                                    <%} %>
+                                    <% if (role[i].role===1) { %>
+                                        <h2>Ban Giám Đốc</h2>
+                                        <%} %>
 
-                                        <% if (role[i].role===2) { %>
-                                            <p> 1!!!</p>
-                                            <%} %>
+                                            <% if (role[i].role===2) { %>
+                                                <p> 1!!!</p>
+                                                <%} %>
 
-                                                <% if (role[i].role===3) { %>
-                                                    <p> 2!!!</p>
-                                                    <%} %>
+                                                    <% if (role[i].role===3) { %>
+                                                        <p> 2!!!</p>
+                                                        <%} %>
 
-                                                        <% if (role[i].role===4 ) { %>
-                                                            <p> 3!!!</p>
-                                                            <%} %>
+                                                            <% if (role[i].role===4 ) { %>
+                                                                <p> 3!!!</p>
                                                                 <%} %>
-                                                                    <% for(let i=0 ; i < role.length; i++ ){ %>
-                                                                        <div class="body-manager">
-                                                                            <div class="body-manager-img">
+                                                                    <%} %>
+                                                                        <% for(let i=0 ; i < role.length; i++ ){ %>
+                                                                            <div class="body-manager">
+                                                                                <div class="body-manager-img">
 
-                                                                                <img src="/<%=role[i].img %> " alt="">
+                                                                                    <img src="/<%=role[i].img %> "
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="manager-title">
+                                                                                    <h4>
+                                                                                        <%=role[i].chucvu %>
+                                                                                    </h4>
+                                                                                    <p>Trình độ chuyên môn: T
+                                                                                        <%=role[i].tdcm %>
+
+
+
+
+
+
+
+                                                                                    </p>
+                                                                                    <p>Trình độ LLCT: <%=role[i].tdllct
+                                                                                            %>
+                                                                                    </p>
+                                                                                    <p>Điện thoại văn phòng:
+                                                                                        <%=role[i].sdtvp %>
+                                                                                    </p>
+                                                                                    <p> Điện thoại di động:
+                                                                                        <%=role[i].sdtdt %>
+                                                                                    </p>
+                                                                                    <p> Email: <a
+                                                                                            href="mailto: <%=role[i].Email %>">
+                                                                                            <%=role[i].email %>
+                                                                                        </a>
+                                                                                    </p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="manager-title">
-                                                                                <h4>
-                                                                                    <%=role[i].chucvu %>
-                                                                                </h4>
-                                                                                <p>Trình độ chuyên môn: T<%=role[i].tdcm
-                                                                                        %>
-
-
-
-
-
-
-
-                                                                                </p>
-                                                                                <p>Trình độ LLCT: <%=role[i].tdllct %>
-                                                                                </p>
-                                                                                <p>Điện thoại văn phòng:
-                                                                                    <%=role[i].sdtvp %>
-                                                                                </p>
-                                                                                <p> Điện thoại di động: <%=role[i].sdtdt
-                                                                                        %>
-                                                                                </p>
-                                                                                <p> Email: <a
-                                                                                        href="mailto: <%=role[i].Email %>">
-                                                                                        <%=role[i].email %>
-                                                                                    </a>
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <%} %>
+                                                                            <%} %>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col m-3">
-                        <%- include('./partials/sidebar'); %>
-                            <h4 class="title-right">
-                                Liên Kết Web
-                            </h4>
-                            <select name="" id="">
-                                <option value="">
-                                    <a href="">Bộ Tài Nguyên Môi Trường</a>
-                                </option>
-                                <option value="">
-                                    <a href="">Bộ Tư Pháp</a>
-                                </option>
-                                <option value="">
-                                    <a href="">Đảng Cộng Sản Việt Nam</a>
-                                </option>
-                                <option value="">
-                                    <a href="">Chính Phủ</a>
-                                </option>
+                        <div class="col m-3">
+                            <%- include('./partials/sidebar'); %>
 
-                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

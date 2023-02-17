@@ -25,71 +25,73 @@
         <%- include('./partials/header'); %>
             <div class="row">
                 <div class="col m-9">
+
                     <div class="addnews">
+                        <h2 class="title-admin">Chỉnh Sửa Thông Tin Người Dùng</h2>
                         <% for(let i=0 ; i < acc.length; i++ ){ %>
-                            <%=acc[i].surname%>
-                                <form action="/admin/edituser/edit" method="post">
-                                    <div class="full-name">
-                                        <div class="surname form-groud">
 
-                                            <input type="text" value="<%=acc[i].surname%>" name="surname"
-                                                placeholder="Nhập họ" id="subname">
-                                            <div></div>
-                                            <small class="form-message1"></small>
-                                        </div>
-                                        <div class="name form-groud">
+                            <form action="/admin/edituser/edit" method="post">
+                                <div class="full-name">
+                                    <div class="surname form-groud">
 
-                                            <input type="text" name="name" value="<%=acc[i].name%>"
-                                                placeholder="Nhập Tên" id="name">
-                                            <div></div>
-                                            <small class="form-message2"></small>
-                                        </div>
-                                    </div>
-                                    <div class="input-list form-groud">
-
-                                        <input type="text" name="user" id="user" value="<%=acc[i].user%>"
-                                            placeholder="Tên Đăng Nhập">
+                                        <input type="text" value="<%=acc[i].surname%>" name="surname"
+                                            placeholder="Nhập họ" id="subname">
                                         <div></div>
-
-
-
+                                        <small class="form-message1"></small>
                                     </div>
-                                    <div class="input-list form-groud">
+                                    <div class="name form-groud">
 
-                                        <input type="email" name="email" value="<%=acc[i].Email%>"
-                                            placeholder="Nhập Email" id="email">
+                                        <input type="text" name="name" value="<%=acc[i].name%>" placeholder="Nhập Tên"
+                                            id="name">
                                         <div></div>
-                                        <small class="form-message4"></small>
+                                        <small class="form-message2"></small>
                                     </div>
-                                    <div class="input-list form-groud">
+                                </div>
+                                <div class="input-list form-groud">
 
-                                        <input type="text" name="pass" placeholder="Nhập Mật Khẩu" id="pass">
-                                        <div></div>
-                                        <small class="form-message5"></small>
-                                    </div>
+                                    <input type="text" name="user" id="user" value="<%=acc[i].user%>"
+                                        placeholder="Tên Đăng Nhập">
+                                    <div></div>
 
 
-                                    <div class="input-list form-groud">
-                                        <label for="cars">Giới Tính</label>
-                                        <select id="cars" name="sex" aria-placeholder="Chọn danh xưng">
-                                            <option value="1">Nam</option>
-                                            <option value="2">Nữ</option>
-                                            <option value="3">Khác</option>
 
-                                        </select>
-                                    </div>
-                                    <div class="input-list form-groud">
-                                        <input type="text" value="<%=acc[i].role%>"
-                                            placeholder="Quyền Tài Khoản?   (User = 0, Admin = 1)" name="role">
+                                </div>
+                                <div class="input-list form-groud">
 
-                                        <div></div> <small class="form-message6"></small>
-                                        <input type="text" name="id" hidden value="<%=acc[i].id%>">
-                                    </div>
-                                    <div class="form-groud">
-                                        <button type="submit">Thêm</button>
-                                    </div>
-                                </form>
-                                <% } %>
+                                    <input type="email" name="email" value="<%=acc[i].Email%>" placeholder="Nhập Email"
+                                        id="email">
+                                    <div></div>
+                                    <small class="form-message4"></small>
+                                </div>
+                                <div class="input-list form-groud">
+
+                                    <input type="text" name="pass" placeholder="Nhập Mật Khẩu" id="pass">
+                                    <div></div>
+                                    <small class="form-message5"></small>
+                                </div>
+
+
+                                <div class="input-list form-groud">
+                                    <label for="cars">Giới Tính</label>
+                                    <select id="cars" name="sex" aria-placeholder="Chọn danh xưng">
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nữ</option>
+                                        <option value="3">Khác</option>
+
+                                    </select>
+                                </div>
+                                <div class="input-list form-groud">
+                                    <input type="text" value="<%=acc[i].role%>"
+                                        placeholder="Quyền Tài Khoản?   (User = 0, Admin = 1)" name="role">
+
+                                    <div></div> <small class="form-message6"></small>
+                                    <input type="text" name="id" hidden value="<%=acc[i].id%>">
+                                </div>
+                                <div class="form-groud">
+                                    <button type="submit">Thêm</button>
+                                </div>
+                            </form>
+                            <% } %>
                     </div>
                 </div>
                 <div class="col m-3">

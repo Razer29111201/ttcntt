@@ -16,79 +16,81 @@
 
     <%- include('./partials/header'); %>
         <div class="grid wide">
-            <div class="container">
-                <div class="row">
-                    <div class="col m-9">
-                        <div class="body">
-                            <h1>Danh Sách Thông Tin Văn Bản</h1>
-                            <div id="select" class="sel">
+            <div class="body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col m-9">
+                            <div class="body">
+                                <h1>Danh Sách Thông Tin Văn Bản</h1>
+                                <div id="select" class="sel">
 
 
-                            </div>
-                            <div class="category">
-                                <div class="category-select">
-                                    <label for="">Dạng Văn Bản: </label>
-                                    <select name="vanban" class="vanban">
-                                        <option value="idvanban">Tắt Cả Văn Bản</option>
-                                        <option value="Thông Báo">Thông Báo</option>
-                                        <option value="Địa Phương">Địa Phương</option>
-                                        <option value="Trung Ương">Trung Ương</option>
-                                    </select>
                                 </div>
-                                <div class="category-select">
-                                    <label for="">Chủ Đề: </label>
-                                    <select name="chude" class="chude" id="" style="margin-left: 75px;">
-                                        <option value="idchude">Tất cả các chủ đề</option>
-                                        <option value="Giới thiệu">Giới thiệu</option>
-                                        <option value="Quyết định thành lập">Quyết định thành lập</option>
-                                        <option value="Sơ đồ tổ chức">Sơ đồ tổ chức</option>
-                                        <option value="Điều lệ tổ chức">Điều lệ tổ chức</option>
-                                        <option value="Tin tức nổi bật"> Tin tức nổi bật</option>
-                                        <option value="Tài nguyên và môi trường">Tài nguyên và môi trường</option>
-                                        <option value="Hoạt động nội bộ">Hoạt động nội bộ</option>
-                                        <option value="Hợp tác phát triển">Hợp tác phát triển</option>
-                                        <option value="Công nghệ thông tin"> Công nghệ thông tin</option>
-                                        <option value="Danh sách Ứng dụng">Danh sách Ứng dụng</option>
-                                    </select>
+                                <div class="category">
+                                    <div class="category-select">
+                                        <label for="">Dạng Văn Bản: </label>
+                                        <select name="vanban" class="vanban">
+                                            <option value="idvanban">Tắt Cả Văn Bản</option>
+                                            <option value="Thông Báo">Thông Báo</option>
+                                            <option value="Địa Phương">Địa Phương</option>
+                                            <option value="Trung Ương">Trung Ương</option>
+                                        </select>
+                                    </div>
+                                    <div class="category-select">
+                                        <label for="">Chủ Đề: </label>
+                                        <select name="chude" class="chude" id="" style="margin-left: 75px;">
+                                            <option value="idchude">Tất cả các chủ đề</option>
+                                            <option value="Giới thiệu">Giới thiệu</option>
+                                            <option value="Quyết định thành lập">Quyết định thành lập</option>
+                                            <option value="Sơ đồ tổ chức">Sơ đồ tổ chức</option>
+                                            <option value="Điều lệ tổ chức">Điều lệ tổ chức</option>
+                                            <option value="Tin tức nổi bật"> Tin tức nổi bật</option>
+                                            <option value="Tài nguyên và môi trường">Tài nguyên và môi trường</option>
+                                            <option value="Hoạt động nội bộ">Hoạt động nội bộ</option>
+                                            <option value="Hợp tác phát triển">Hợp tác phát triển</option>
+                                            <option value="Công nghệ thông tin"> Công nghệ thông tin</option>
+                                            <option value="Danh sách Ứng dụng">Danh sách Ứng dụng</option>
+                                        </select>
+                                    </div>
+                                    <div class="search">
+                                        <input type="search" id="search" placeholder="Tìm Kiếm">
+                                    </div>
                                 </div>
-                                <div class="search">
-                                    <input type="search" id="search" placeholder="Tìm Kiếm">
-                                </div>
-                            </div>
-                            <div class="body-content">
-                                <table class="content-table">
-                                    <tr>
-                                        <th>Số Văn Bản</th>
-                                        <th style="width: 55%;">Tiêu Đề</th>
-                                        <th>Download</th>
-                                        <th></th>
+                                <div class="body-content">
+                                    <table class="content-table">
+                                        <tr>
+                                            <th>Số Văn Bản</th>
+                                            <th style="width: 55%;">Tiêu Đề</th>
+                                            <th>Download</th>
+                                            <th></th>
 
-                                    </tr>
-                                    <% for(let i=0 ; i < ttvb.length; i++ ){ %>
-                                        <tr class="ct">
-                                            <td>
-                                                <%=ttvb[i].sovb%>
-                                            </td>
-                                            <td style="text-align: start;">
-                                                <%=ttvb[i].title%>
-                                            </td>
-                                            <td><a href="<%=ttvb[i].linkfile%>">Download</a></td>
-                                            <td><span style="cursor: pointer;" class="select">Chọn</span></td>
-                                            <td style="display: none;">
-                                                <%=ttvb[i].chude%>
-                                            </td>
-                                            <td style="display: none;">
-                                                <%=ttvb[i].dangvanban%>
-                                            </td>
                                         </tr>
-                                        <%} %>
+                                        <% for(let i=0 ; i < ttvb.length; i++ ){ %>
+                                            <tr class="ct">
+                                                <td>
+                                                    <%=ttvb[i].sovb%>
+                                                </td>
+                                                <td style="text-align: start;">
+                                                    <%=ttvb[i].title%>
+                                                </td>
+                                                <td><a href="<%=ttvb[i].linkfile%>">Download</a></td>
+                                                <td><span style="cursor: pointer;" class="select">Chọn</span></td>
+                                                <td style="display: none;">
+                                                    <%=ttvb[i].chude%>
+                                                </td>
+                                                <td style="display: none;">
+                                                    <%=ttvb[i].dangvanban%>
+                                                </td>
+                                            </tr>
+                                            <%} %>
 
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col m-3">
-                        <%- include('./partials/sidebar'); %>
+                        <div class="col m-3">
+                            <%- include('./partials/sidebar'); %>
+                        </div>
                     </div>
                 </div>
             </div>
