@@ -37,10 +37,11 @@
                                         <div class="carousel-inner">
                                             <% for(let i=0 ; i < 3; i++ ){ %>
                                                 <div class="carousel-item active" data-bs-interval="2000">
-                                                    <img src="<%=slide[i].img%>" class="d-block w-100" alt="...">
+                                                    <a href="/news/<%=news[i].id%>"> <img src="<%=news[i].thump%>"
+                                                            class="d-block w-100" alt="..."></a>
                                                     <div class="slide-title">
                                                         <p>
-                                                            <%=slide[i].title%>
+                                                            <%=news[i].title%>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -67,7 +68,7 @@
                                     <h4>Tin Tức Mới Nhất</h4>
                                     <div class="hr"></div>
                                     <ul class="news-list">
-                                        <% for(let i=0 ; i < 5; i++ ){ %>
+                                        <% for(let i=3 ; i < 8; i++ ){ %>
                                             <li class="news-item">
                                                 <a href="/news/<%=news[i].id%>">
                                                     <%=news[i].heading%>
@@ -106,7 +107,7 @@
                             <% } %>
                         </div>
                         <ul class="news_events-list">
-                            <% for(let i=5 ; i < 10; i++ ){ %>
+                            <% for(let i=8 ; i < 13; i++ ){ %>
                                 <li class="news_events-item">
                                     <a href="/news/<%=news[i].id%>">
                                         <%=news[i].heading%>

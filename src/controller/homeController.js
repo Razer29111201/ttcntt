@@ -328,7 +328,7 @@ const ckecklogin1 = async function (req, res, next) {
         }
 
     } catch (error) {
-        res.json('lox')
+        res.redirect('/login')
     }
 }
 const checkadmin = function (req, res, next) {
@@ -510,6 +510,41 @@ let deleteuser = async (req, res) => {
     return res.redirect('/admin')
 }
 
+let getttnd = async (req, res) => {
+    var token = req.cookies.token
+
+    var id = jwt.verify(token, 'aa')
+    if (id) {
+        const [acc] = await pool.execute('SELECT * FROM `account` where id = ? ', [id.id])
+
+
+
+        return res.render('ttnd.ejs', { acc: acc[0] })
+    }
+
+}
+let editttnd = async (req, res) => {
+
+    var id = req.body.id
+    var surname = req.body.surname
+    var name = req.body.name
+    var email = req.body.email
+    var sdt = req.body.sdt
+
+    await pool.execute('update account set surname = ?, name = ?, email = ?,sdt=? where id = ?'
+        , [surname, name, email, sdt, id]);
+    res.redirect('/ttnd')
+
+}
+let postavatar = async (req, res) => {
+    var file = req.file.path.split('\\').splice(2).join('/')
+
+
+    await pool.execute('update  account set img =? where id = ?  ', [file, req.body.id]);
+    res.redirect('/ttnd')
+
+}
+
 
 export {
     getHomePage, accpost,
@@ -529,7 +564,7 @@ export {
     , getaj, getnewsnctt1, getnewshtpt1, getnewstnmt1,
     getnewshdnb1, gt, gtdetail, addsdtc, sdtcadd, geteditsdtc
     , adduser, adduser1, edituser, edituser1
-    , deleteuser
+    , deleteuser, getttnd, editttnd, postavatar
     // submituser,
     // submitadmin
 }

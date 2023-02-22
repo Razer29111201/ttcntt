@@ -59,6 +59,11 @@ $.ajax({
     type: 'get',
 
     success: (function (data) {
+        if (data.acc.img) {
+            $('#logo-user').html(`<img src="/${data.acc.img}" alt="">`)
+        } else {
+            $('#logo-user').html(`<i class='bx bxs-user-circle'></i>`)
+        }
         if (data.token) {
             var Admin = 'Admin'
             $(".header-user-success").removeClass('hiden')
@@ -70,7 +75,10 @@ $.ajax({
             if (data.acc.role == 1) {
                 $('#admin').html('Admin')
 
-                console.log($('#admin'));
+
+            } else {
+                console.log($('#admin-icon'));
+                $('#admin-icon').attr("style", "display:none;")
             }
         }
 
@@ -137,30 +145,6 @@ $.ajax({
     }
 })
 
-
-$.ajax({
-    url: '/news/ajj?page=2',
-    type: 'get',
-    success: (function (data) {
-
-        $('#paging').pagination(
-            {
-                dataSource: data.news,
-                pageSize: 8,
-                afterPageOnClick: function (a, b) {
-                    console.log($('.paginationjs-page a')[b - 1]);
-                    $('.paginationjs-page a').attr('href', `?page=${b}`)
-
-                }
-
-            }
-        )
-    }),
-    error: function (e) {
-        console.log(e.message);
-    }
-})
-
 $.ajax({
     url: '/ttvb/value',
     type: 'get',
@@ -173,9 +157,3 @@ $.ajax({
         console.log(e.message);
     }
 })
-
-function page_redirect() {
-
-    window.location = 'www.rankwithme.com';
-
-} 

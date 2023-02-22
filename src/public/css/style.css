@@ -22,7 +22,12 @@
     bottom: 0;
     background-color: rgba(3, 3, 3, 0.7);
     padding: 0 10px;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
+
 
 .slide-title p {
     color: #fff;

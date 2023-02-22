@@ -5,6 +5,7 @@ import login from './login'
 import register from './register'
 import ttvb from './ttvb'
 import gt from './gt'
+import ttnd from './ttnd'
 import { ckecklogin, checkadmin, getHomePage } from '../controller/homeController.js'
 const router = express.Router();
 
@@ -12,6 +13,7 @@ const router = express.Router();
 
 const initWebRouter = (app) => {
     router.get('/', getHomePage)
+    app.use('/ttnd', ttnd)
     app.use('/gt', gt)
     app.use('/ttvb', ttvb)
     app.use('/register', register)

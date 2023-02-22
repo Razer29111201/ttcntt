@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/ttnd.css">
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <title>Trung Tâm Công Nghệ Thông Tin Sở Tài Nguyên Môi Trường Quảng Ninh</title>
+</head>
+
+<body>
+
+    <%- include('./partials/header'); %>
+
+        <div class="grid wide">
+
+            <div class="container">
+                <div class="table">
+                    <h1 class="title">Thông Tin Người Dùng</h1>
+                    <div class="user-img">
+                        <div class="img">
+                            <% if(acc.img.length> 0){ %>
+                                <img src="<%=acc.img%>" id="img" alt="">
+
+                                <% } else{ %>
+                                    <img src="/img/user.jpg" id="img" alt="">
+                                    <% } %>
+                        </div>
+                        <ul class="img-title hidden">
+
+                            <label for="up">Cập Nhật Ảnh</label>
+                            <li class="show">Xem ảnh</li>
+                        </ul>
+                        <form action="/ttnd/postavatar" class="form" method="post" enctype="multipart/form-data">
+                            <input type="text" name="id" value="<%=acc.id%>" hidden>
+                            <input type="file" name="avatar" hidden id="up" onchange="upload()">
+                            <div id="btn">
+
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="gallery">
+
+                        <div class="gallery-inner">
+                            <img src="" alt="" />
+                        </div>
+                        <i class="fas fa-times close"></i>
+                    </div>
+                    <form action="/ttnd/edit" method="post" class="form-edit" style="position: relative;">
+                        <input type="text" hidden value="<%=acc.id%>" id="id" name="id">
+
+                        <div class="fullname">
+                            <div class="form-groud">
+                                <label for="">Họ:</label>
+                                <input type="text" name="surname" value="<%=acc.surname%>">
+                            </div>
+                            <div class="form-groud">
+                                <label for="">Tên:</label>
+                                <input type="text" name="name" value="<%=acc.name%>">
+                            </div>
+                        </div>
+
+                        <div class="form-groud">
+                            <label for="">Tên Tài Khoản:</label>
+                            <input type="text" id="user" disabled name="user" value="<%=acc.user%>">
+                        </div>
+                        <div class="form-groud">
+                            <label for="">Mật Khẩu:</label>
+                            <input type="text" name="" disabled id="pass" value="********">
+                        </div>
+                        <div class="form-groud">
+                            <label for="">Email:</label>
+                            <input type="text" name="email" value="<%=acc.Email%>">
+                        </div>
+                        <div class="form-groud">
+                            <label for="">Số Điện Thoại:</label>
+                            <input type="text" name="sdt" value="<%=acc.sdt%>">
+                        </div>
+                        <div class="form-groud">
+                            <button type="submit">Sửa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- <div class="col m-9">
+
+            </div>
+            <div class="col m-3"> -->
+            <!-- <div class="list-app">
+                    <h4 class="title-right">Danh Sách Ứng Dụng</h4>
+                    <div class="app-scroll">
+                        <div class="item-app">
+                            <img src="img/hopdong.png" alt="">
+                            <a href="">Hợp Đồng Thuê Đất</a>
+                        </div>
+                        <div class="item-app">
+                            <img src="img/hopdong.png" alt="">
+                            <a href="">Quản Lý Nguồn Ô Nhiễm Nước</a>
+                        </div>
+                        <div class="item-app">
+                            <img src="img/moitruong.png" alt="">
+                            <a href="">Phần mềm Địa chất Khoáng sản</a>
+                        </div>
+                        <div class="item-app">
+                            <img src="img/KhoSo.png" alt="">
+                            <a href="">Quản lý Kho</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="info">
+                    <h4 class="title-right">Thông Tin Văn Bản</h4>
+                    <div class="info-slide">
+                        <ul class="info-list">
+                            <li class="info-item">
+                                <a href="">Kế hoạch Triển khai thi hành Luật An ninh mạng</a>
+                            </li>
+                            <li class="info-item">
+                                <a href="">Quyết định về việc quy định phát triển, quản lý, khai thác hạ tầng kỹ
+                                    thuật
+                                    và hệ thống thông tin, cơ sở dữ liệu tỉnh Quảng Ninh
+                                </a>
+                            </li>
+                            <li class="info-item">
+                                <a href="">Quyết định về việc ban hành Quy chế quản lý, vận hành và khai thác Hệ
+                                    thống
+                                    thông tin đất đai tỉnh Quảng Ninh
+                                </a>
+                            </li>
+                            <li class="info-item">
+                                <a href="">Quyết định về việc giao nhiệm vụ cập nhật, theo dõi, quản lý các dự
+                                    án
+                                    được
+                                    nhà nước giao đất, thuê đất trên địa bàn tỉnh Quảng Ninh
+                                </a>
+                            </li>
+                            <li class="info-item">
+                                <a href="">Thông báo ý kiến chỉ đạo của đồng chí Giám đốc Sở Tài nguyên và Môi
+                                    trường về
+                                    việc thực hiện công tác luân chuyển hồ sơ, cập nhật, theo dõi, quản lý, lưu
+                                    trữ,
+                                    hồ
+                                    sơ các dự án sử dụng đất, mặt nước trên địa bàn tỉnh.
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="maps">
+                    <h4 class="title-right">
+                        Bản Đồ
+                    </h4>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.2184807995686!2d107.11959311490202!3d20.943739496051254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a5769b3b2b7c7%3A0xd96bf712ba554e1a!2zVHLhu6UgU-G7nyBMacOqbiBDxqEgUXVhbiBT4buRIDM!5e0!3m2!1svi!2s!4v1673368814358!5m2!1svi!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="lienket">
+                    <h4 class="title-right">
+                        Liên Kết Web
+                    </h4>
+                    <select name="" id="">
+                        <option value="">
+                            <a href="">Bộ Tài Nguyên Môi Trường</a>
+                        </option>
+                        <option value="">
+                            <a href="">Bộ Tư Pháp</a>
+                        </option>
+                        <option value="">
+                            <a href="">Đảng Cộng Sản Việt Nam</a>
+                        </option>
+                        <option value="">
+                            <a href="">Chính Phủ</a>
+                        </option>
+
+                    </select>
+                </div> -->
+            <!-- </div> -->
+
+        </div>
+
+        <%- include('./partials/footer'); %>
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+                integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+                crossorigin="anonymous"></script>
+            <script src="/js/jquery-3.6.3.min.js"></script>
+            <script src="/js/index.js"></script>
+            <script src="/js/ttnd.js"></script>
+            <!-- <script src="/js/acc.js"></script> -->
+</body>
+
+</html>
