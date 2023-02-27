@@ -1,9 +1,9 @@
 import mysql from 'mysql2/promise';
 const pool = mysql.createPool({
-    host: 'sql12.freemysqlhosting.net',
-    user: 'sql12598875',
+    host: 'db4free.net',
+    user: 'ttcntt',
     port: 3306,
-    password: 'AnZhwru2A4',
-    database: 'sql12598875'
+    password: 'Viet29112001',
+    database: 'ttcntt'
 })
 export default pool
