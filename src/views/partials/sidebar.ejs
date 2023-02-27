@@ -44,24 +44,25 @@
     <h4 class="title-right">
         Liên Kết Web
     </h4>
-    <select name="name" id="">
-        <option value="" selected>
-            <a href="http://www.monre.gov.vn">Bộ Tài Nguyên Môi Trường</a>
+    <select name="name" id="" onchange="checkAlert(event)">
+        <option value="" selected disabled>--- Chọn Web ---</option>
+        <option value="Bộ Tài Nguyên Môi Trường">
+            Bộ Tài Nguyên Môi Trường
         </option>
-        <option value="">
-            <a href="http://www.moj.gov.vn/">Bộ Tư Pháp</a>
+        <option value="Bộ Tư Pháp">
+            Bộ Tư Pháp
         </option>
-        <option value="">
+        <option value="3">
             <a href="http://dangcongsan.vn/">Đảng Cộng Sản Việt Nam</a>
         </option>
-        <option value="">
+        <option value="4">
             <a href="http://www.vietlaw.gov.vn/">Văn bản quy phạm pháp luật</a>
         </option>
-        <option value="">
+        <option value="5">
             <a href="http://www.chinhphu.vn/">Chính Phủ</a>
         </option>
         <a href="http://www.quangninh.gov.vn">
-            <option onclick="page_redirect()" value="http://www.quangninh.gov.vn">
+            <option value="6">
                 Cổng thông tin điện tử tỉnh Quảng Ninh
             </option>
         </a>

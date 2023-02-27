@@ -157,3 +157,26 @@ $.ajax({
         console.log(e.message);
     }
 })
+
+
+function checkAlert(evt) {
+    if (evt.target.value === "Bộ Tài Nguyên Môi Trường") {
+        window.location.href = 'http://www.monre.gov.vn'
+    }
+    if (evt.target.value === "Bộ Tư Pháp") {
+        window.location.href = 'http://www.moj.gov.vn/'
+    }
+    if (evt.target.value === "3") {
+        window.location.href = 'http://dangcongsan.vn/'
+    }
+    if (evt.target.value === "4") {
+        window.location.href = 'http://www.vietlaw.gov.vn/'
+    }
+    if (evt.target.value === "5") {
+        window.location.href = 'http://www.chinhphu.vn/'
+    }
+    if (evt.target.value === "6") {
+        window.location.href = 'http://www.quangninh.gov.vn'
+    }
+
+}

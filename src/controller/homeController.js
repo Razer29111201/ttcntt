@@ -512,14 +512,19 @@ let deleteuser = async (req, res) => {
 
 let getttnd = async (req, res) => {
     var token = req.cookies.token
+    if (token) {
 
-    var id = jwt.verify(token, 'aa')
-    if (id) {
-        const [acc] = await pool.execute('SELECT * FROM `account` where id = ? ', [id.id])
+        var id = jwt.verify(token, 'aa')
+        if (id) {
+            const [acc] = await pool.execute('SELECT * FROM `account` where id = ? ', [id.id])
 
 
 
-        return res.render('ttnd.ejs', { acc: acc[0] })
+            return res.render('ttnd.ejs', { acc: acc[0] })
+        }
+
+    } else {
+        res.redirect("/")
     }
 
 }
